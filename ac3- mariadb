@@ -1,0 +1,12 @@
+Neste guia didatico vamos realziar a configuração e instalação de apache2.
+
+Ao iniciar seu terminal insira os coamdno para usuarios root **sudo su**.
+Comandos: **apt-get update** para atualizar
+**apt-get install apache2-server** [apahce2](www.digitalocean.com/community/tutorials/how-to...).
+**mkdir etc/apache2/ssl**
+**cd etc/apache2/ssl**
+Apos isso iremos criar nossa chave de acesso aos serviço web 
+**openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/apache2/ssl/apache.key -out /etc/apache2/ssl/apache.crt**  [chaves](https://www.blogdainformatica.com.br/login-automatico-com-chave-ssh-no-linux/).
+Arquivo de configuração: **nano /etc/apache2/ssl/apache2.conf**
+ inserimos o caminhos do crt e key **/etc/apache2/ssl/apache2,crt**, **/etc/apache2/ssl/apache2.key**
+**service apache2 restart** reiniciamos o serviço.
